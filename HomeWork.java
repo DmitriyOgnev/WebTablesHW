@@ -82,7 +82,7 @@ public class HomeWork {
 			}
 
 			// Goes to the next page
-			GoToNextPage();
+			goToNextPage();
 
 		}
 
@@ -91,7 +91,7 @@ public class HomeWork {
 
 	}
 
-	public void GoToNextPage() throws InterruptedException {
+	public void goToNextPage() throws InterruptedException {
 
 		try {
 			if (driver.findElement(By.xpath("//a[@class='nxtArrow']")).isDisplayed())
@@ -104,13 +104,8 @@ public class HomeWork {
 		Thread.sleep(500);
 	}
 
-	public void printMap(Map<Integer, String> map) {
-		for (Integer key : map.keySet())
-			System.out.println(key + ":" + map.get(key));
-	}
-
 	@AfterClass
 	public void teardownClass() {
-		// driver.close();
+		 driver.close();
 	}
 }
