@@ -58,8 +58,11 @@ public class HomeWork {
 		// Loop through each page
 		for (int i = 0; i <= totalRecords / 100; i++) {
 
+			System.out.println(i);
+			// Gets the list of all <tr> elements on a page
 			List<WebElement> listRows = driver.findElements(By.xpath("//table[@id='reportTab']/tbody/tr"));
 
+			// Loop through each row
 			for (WebElement row : listRows) {
 
 				// Constructs row's xPath
