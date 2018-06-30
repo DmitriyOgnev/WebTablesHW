@@ -40,8 +40,8 @@ public class HomeWork {
 	public void setUpClass() throws InterruptedException {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-		driver.get(
-				"https://forms.zohopublic.com/murodil/report/Applicants/reportperma/DibkrcDh27GWoPQ9krhiTdlSN4_34rKc8ngubKgIMy8");
+		driver.get("https://forms.zohopublic.com/murodil/report/Applicants/reportperma/DibkrcDh27GWoPQ9krhiTdlSN4_34rKc8ngubKgIMy8");
+		
 		Select selectPerPage = new Select(driver.findElement(By.xpath("//select[@id='recPerPage']")));
 		selectPerPage.selectByVisibleText("100");
 
@@ -53,12 +53,12 @@ public class HomeWork {
 
 		// Gets the total number of records
 		int totalRecords = Integer.parseInt(driver.findElement(By.xpath("//span[@id='total']")).getText());
+		
 		Map<Integer, String> map = new HashMap<Integer, String>();
 
 		// Loop through each page
 		for (int i = 0; i <= totalRecords / 100; i++) {
 
-			System.out.println(i);
 			// Gets the list of all <tr> elements on a page
 			List<WebElement> listRows = driver.findElements(By.xpath("//table[@id='reportTab']/tbody/tr"));
 
@@ -82,7 +82,7 @@ public class HomeWork {
 			}
 
 			// Goes to the next page
-			testGoToNextPage();
+			GoToNextPage();
 
 		}
 
@@ -91,7 +91,7 @@ public class HomeWork {
 
 	}
 
-	public void testGoToNextPage() throws InterruptedException {
+	public void GoToNextPage() throws InterruptedException {
 
 		try {
 			if (driver.findElement(By.xpath("//a[@class='nxtArrow']")).isDisplayed())
