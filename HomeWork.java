@@ -56,7 +56,7 @@ public class HomeWork {
 		Map<Integer, String> map = new HashMap<Integer, String>();
 
 		// Loop through each page
-		for (int i = 0; i < totalRecords / 100; i++) {
+		for (int i = 0; i <= totalRecords / 100; i++) {
 
 			List<WebElement> listRows = driver.findElements(By.xpath("//table[@id='reportTab']/tbody/tr"));
 
